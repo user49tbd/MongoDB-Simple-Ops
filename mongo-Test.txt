@@ -1,0 +1,31 @@
+use dbsT
+db.createCollection("hero")
+show collections
+db.hero.insertOne({"name":"A-Bomb","Gender":"Male","Eye color":"yellow","Race":"Human",
+"Hair color":"No Hair","Height":"203","Publisher":"Marvel Comics","Alignment":"good","Weight":"441"})
+
+db.hero.insertOne({"name":"Alex Woolsly","Gender":"Male","Height":"-99",
+"Publisher":"NBC-Heroes","Alignment":"good","Weight":"-99"})
+
+----------------------------------------------------------------------------------------------------------------------------------
+tem cor
+db.hero.find({"Skin color":{$exists:true}})
+
+genero não é masculino
+dbsT> db.hero.find({"Gender":{$ne:"Male"}})
+
+peso negativo
+dbsT> db.hero.find({"Weight":{$lt:"0"}})
+
+peso maior que 100
+db.hero.find({"Weight":{$gt:"100"}})
+
+publisher nao é "Marvel Comics"
+db.hero.find({"Publisher":{$ne:"Marvel Comics"}})
+
+publisher nao é "DC Comics"
+db.hero.find({"Publisher":{$ne:"DC Comics"}})
+
+heroi humano e é da "Marvel Comics"
+db.hero.find({$and:[{"Publisher":{$eq:"Marvel Comics"}},{"Race":{$eq:"Human"}}]})
+
